@@ -37,7 +37,7 @@ public class LandingScreen {
     /** Builds the screen. The first layer in the StackPane sits at the back. */
     public Parent build() {
         StackPane root = new StackPane(createBackground(), createMenu());
-        root.setStyle("-fx-font-family: '" + handwrittenFont() + "';");
+        root.setStyle("-fx-font-family: '" + Theme.handwrittenFont() + "';");
         return root;
     }
 
@@ -47,20 +47,19 @@ public class LandingScreen {
         Label title = new Label("ShapeHopper");
         title.setId("title");
 
-        Button startButton = menuButton("Start Game");
+        Button startButton = menuButton("Start");
+        Button galleryButton = menuButton("Shapes Gallery");
         Button historyButton = menuButton("History");
         Button aboutButton = menuButton("About");
-        Button settingsButton = menuButton("Settings");
         Button exitButton = menuButton("Exit");
 
-        // The other screens don't exist yet, so these just print for now
-        startButton.setOnAction(e -> stage.getScene().setRoot(new GameScreen(stage).build()));
-        historyButton.setOnAction(e -> System.out.println("History clicked"));
-        aboutButton.setOnAction(e -> System.out.println("About clicked"));
-        settingsButton.setOnAction(e -> System.out.println("Settings clicked"));
+        startButton.setOnAction(e -> Navigator.show(stage, new GameScreen(stage).build()));
+        galleryButton.setOnAction(e -> Navigator.show(stage, new GalleryScreen(stage).build()));
+        historyButton.setOnAction(e -> Navigator.show(stage, new HistoryScreen(stage).build()));
+        aboutButton.setOnAction(e -> System.out.println("About: coming soon"));
         exitButton.setOnAction(e -> stage.close());
 
-        VBox menu = new VBox(14, title, startButton, historyButton, aboutButton, settingsButton, exitButton);
+        VBox menu = new VBox(14, title, startButton, galleryButton, historyButton, aboutButton, exitButton);
         menu.setAlignment(Pos.CENTER);
         return menu;
     }
@@ -112,7 +111,7 @@ public class LandingScreen {
         startFloating(shape, seconds);
     }
 
-    /** Moves a shape gently up and down, forever. */
+    // Shape gently floate up and down
     private void startFloating(Node shape, double seconds) {
         TranslateTransition floating = new TranslateTransition(Duration.seconds(seconds), shape);
         floating.setByY(-18);                             // drift up 18 pixels
@@ -124,7 +123,7 @@ public class LandingScreen {
 
     // --- Shape builders ---
 
-    /** A cylinder: an oval on top, two sides, and a curved bottom. */
+    // Cylinder
     private Group cylinder() {
         Arc bottom = new Arc(0, 35, 26, 9, 180, 180); // bottom half of an oval
         bottom.setType(ArcType.OPEN);
@@ -136,7 +135,7 @@ public class LandingScreen {
                 sketch(bottom));
     }
 
-    /** A 5-point star: 10 corners that alternate between far from and close to the center. */
+    // Star 
     private Shape star() {
         Polygon star = new Polygon();
         for (int i = 0; i < 10; i++) {
@@ -147,7 +146,7 @@ public class LandingScreen {
         return sketch(star);
     }
 
-    /** Draws a gentle wave near the bottom of the screen. */
+    // Wave line 
     private void drawGround(Polyline ground, Pane pane) {
         double baseY = pane.getHeight() * 0.88;
         ground.getPoints().clear();
@@ -159,13 +158,4 @@ public class LandingScreen {
         }
     }
 
-    /** Picks a handwritten font: Segoe Print on Windows, Chalkboard SE on Mac. */
-    private String handwrittenFont() {
-        for (String font : new String[] {"Segoe Print", "Chalkboard SE", "Comic Sans MS"}) {
-            if (Font.getFamilies().contains(font)) {
-                return font;
-            }
-        }
-        return "System";
-    }
 }

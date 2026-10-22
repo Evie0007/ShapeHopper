@@ -13,7 +13,7 @@
     -fx-padding: 0 0 30 0; /* space below the title */
 }
 
-/* Menu buttons: white with a black border */
+/* Menu buttons */
 .menu-button {
     -fx-pref-width: 220px;
     -fx-padding: 8 0 8 0;
@@ -27,13 +27,13 @@
     -fx-cursor: hand;
 }
 
-/* Flip to black on hover */
+
 .menu-button:hover {
     -fx-background-color: black;
     -fx-text-fill: white;
 }
 
-/* Press down slightly when clicked */
+
 .menu-button:pressed {
     -fx-translate-y: 1;
 }
@@ -45,4 +45,142 @@
     -fx-stroke-width: 3px;
     -fx-stroke-line-cap: round;
     -fx-stroke-line-join: round;
+}
+
+/* --- Game screen --- */
+
+
+.hud-label {
+    -fx-font-size: 22px;
+    -fx-text-fill: black;
+}
+
+
+#game-title {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+
+
+.answer-input {
+    -fx-font-size: 20px;
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-padding: 8 12 8 12;
+    -fx-prompt-text-fill: #888888;
+}
+
+
+.hint-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-underline: true;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.hint-button:hover {
+    -fx-text-fill: #555555;
+}
+
+
+.pause-button {
+    -fx-min-width: 48px;
+    -fx-min-height: 48px;
+    -fx-max-width: 48px;
+    -fx-max-height: 48px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    -fx-background-radius: 24px;
+    -fx-background-insets: 0;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 24px;
+    -fx-cursor: hand;
+}
+
+.pause-button:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+/* --- Shared: screen titles and Back --- */
+
+.screen-title {
+    -fx-font-size: 44px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-padding: 0 0 20 0;
+}
+
+.back-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 22px;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+    -fx-underline: true;
+}
+
+/* --- Shape Gallery --- */
+
+.shape-name {
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+}
+
+/* --- History --- */
+
+.stat-label {
+    -fx-font-size: 22px;
+    -fx-text-fill: black;
+}
+
+.record-label {
+    -fx-font-size: 20px;
+    -fx-text-fill: black;
+    -fx-padding: 0 0 0 20;
+}
+
+.mascot-text {
+    -fx-font-size: 22px;
+    -fx-text-fill: black;
+}
+
+/* --- Game screen --- */
+
+.submit-button {
+    -fx-background-color: white;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 0; 
+    -fx-padding: 0 14 0 14;
+    -fx-cursor: hand;
+}
+
+.submit-button:hover {
+    -fx-background-color: black;
+}
+
+.check-icon {
+    -fx-fill: transparent;
+    -fx-stroke: black;
+    -fx-stroke-width: 3;
+    -fx-stroke-line-cap: round;
+    -fx-stroke-line-join: round;
+}
+
+.submit-button:hover .check-icon {
+    -fx-stroke: white;
 }
