@@ -1,0 +1,48 @@
+/* ShapeHopper main theme: black-and-white sketch style */
+
+
+.root {
+    -fx-background-color: white;
+}
+
+/* title */
+#title {
+    -fx-font-size: 72px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-padding: 0 0 30 0; /* space below the title */
+}
+
+/* Menu buttons: white with a black border */
+.menu-button {
+    -fx-pref-width: 220px;
+    -fx-padding: 8 0 8 0;
+    -fx-font-size: 20px;
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+}
+
+/* Flip to black on hover */
+.menu-button:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+/* Press down slightly when clicked */
+.menu-button:pressed {
+    -fx-translate-y: 1;
+}
+
+
+.sketch {
+    -fx-fill: transparent;
+    -fx-stroke: black;
+    -fx-stroke-width: 3px;
+    -fx-stroke-line-cap: round;
+    -fx-stroke-line-join: round;
+}

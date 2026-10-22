@@ -2,17 +2,17 @@ package org.example;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.scene.layout.StackPane;
 
 public class App extends Application {
     @Override
     public void start(Stage stage) {
-        Label title = new Label("ShapeHopper");
-        StackPane root = new StackPane(title); // Create a StackPane and add the title label to it
-        Scene scene = new Scene(root); // Create a scene with the StackPane as the root node
-        stage.setTitle("ShapeHopper"); // Set the title of the stage
+        Scene scene = new Scene(new LandingScreen(stage).build());
+
+        // Load the look (colors, borders, font sizes) from style.css
+        scene.getStylesheets().add(getClass().getResource("/org/example/style.css").toExternalForm());
+
+        stage.setTitle("ShapeHopper");
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
