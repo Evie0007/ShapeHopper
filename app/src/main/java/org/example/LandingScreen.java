@@ -54,7 +54,7 @@ public class LandingScreen {
         Button exitButton = menuButton("Exit");
 
         // The other screens don't exist yet, so these just print for now
-        startButton.setOnAction(e -> System.out.println("Start Game clicked"));
+        startButton.setOnAction(e -> stage.getScene().setRoot(new GameScreen(stage).build()));
         historyButton.setOnAction(e -> System.out.println("History clicked"));
         aboutButton.setOnAction(e -> System.out.println("About clicked"));
         settingsButton.setOnAction(e -> System.out.println("Settings clicked"));
